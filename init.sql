@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS reviewkue;
+USE reviewkue;
+
+CREATE TABLE IF NOT EXISTS review (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nama VARCHAR(100),
+  toko VARCHAR(100),
+  nilai INT,
+  komentar TEXT
+);

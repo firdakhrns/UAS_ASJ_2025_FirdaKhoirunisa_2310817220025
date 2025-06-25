@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Review</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Edit Review</h1>
+    <form action="/edit/{{ data[0] }}" method="post">
+        <input type="text" name="nama" value="{{ data[1] }}" required>
+        <input type="text" name="toko" value="{{ data[2] }}" required>
+        <input type="text" name="nilai" value="{{ data[3] }}" required>
+        <textarea name="komentar" rows="3" required>{{ data[4] }}</textarea>
+        <button type="submit">Update</button>
+    </form>
+</div>
+</body>
+</html>

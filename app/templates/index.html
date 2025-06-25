@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review Kue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Review Kue Pelanggan</h1>
+    
+    <table>
+        <tr>
+            <th>Nama Kue</th>
+            <th>Toko</th>
+            <th>Nilai</th>
+            <th>Komentar</th>
+            <th>Aksi</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td class="actions">
+                <a href="/edit/{{ row[0] }}">Edit</a>
+                <a href="/delete/{{ row[0] }}">Hapus</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Tambah Review Baru</h2>
+    <form action="/add" method="post">
+        <input type="text" name="nama" placeholder="Nama Kue" required>
+        <input type="text" name="toko" placeholder="Toko" required>
+        <input type="text" name="nilai" placeholder="Nilai (1-10)" required>
+        <textarea name="komentar" placeholder="Komentar..." rows="3" required></textarea>
+        <button type="submit">Tambah</button>
+    </form>
+</div>
+</body>
+</html>
