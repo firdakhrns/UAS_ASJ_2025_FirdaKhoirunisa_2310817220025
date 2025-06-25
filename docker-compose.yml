@@ -11,6 +11,8 @@ services:
       - .env
     depends_on:
       - db
+    labels:
+      - "railway.expose=true"
 
   db:
     image: mysql:8.0
